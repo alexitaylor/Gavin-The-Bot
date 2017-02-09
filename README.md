@@ -3,7 +3,6 @@
 **[Gavin the Friendly Twitter Bot]** - contains my Portfolio for you to review. Built with Javascript & [Twit].
 
 This page will help us get started with the few simple commands we'll need to deploy my Twitter Bot, Gavin, to Heroku.
-Credentials included
 
 Getting Started
 ---------------
