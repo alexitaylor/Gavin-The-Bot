@@ -1,6 +1,6 @@
 # twitterBot
 
-**Gavin the Friendly Twitter Bot** - contains my Portfolio for you to review. Built with Javascript & [Twit].
+**[Gavin the Friendly Twitter Bot]** - contains my Portfolio for you to review. Built with Javascript & [Twit].
 
 This page will help us get started with the few simple commands we'll need to deploy my Twitter Bot, Gavin, to Heroku.
 Credentials included
@@ -70,4 +70,5 @@ This is the normal commands when working on the bot code
 https://twitter.com/GavinTheBot
 
 [Twit]:https://www.npmjs.com/package/twit
+[Gavin the Friendly Twitter Bot]:https://twitter.com/GavinTheBot
 
