@@ -1,0 +1,18 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexi",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jsonfile": "^2.4.0",
+    "lodash": "^4.17.4",
+    "twit": "^2.2.5"
+  }
+}
