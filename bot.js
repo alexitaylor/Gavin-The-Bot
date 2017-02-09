@@ -276,7 +276,7 @@ favoriteTweet();
 setInterval(favoriteTweet, 1000 * 60 * 5);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 5); // Retweet every 5 min
+setInterval(retweet, 1000 * 10); // Retweet every 5 min
 
 getUsers(getUsersInfo, user.ID);
 setInterval(function() { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 5);
