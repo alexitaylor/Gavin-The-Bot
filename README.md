@@ -11,7 +11,7 @@ Getting Started
 1. Check it out from GitHub
 
     ```sh
-    git clone https://github.com/alexitaylor/portfolio.git
+    git clone https://github.com/alexitaylor/twitterBot
     ```
 
 2. Install Heroku Command Line Toolbelt:
