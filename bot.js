@@ -15,8 +15,6 @@ var userIdList = [];
 var usersInfoList = [];
 var user = { screenName: 'RedPanda_Labs', ID: 3180043436 };
 var pastUsers = [];
-var hashtags = ['#javascript', '#nodejs', '#Nodejs', '#TwitterBot', '#Webdesign', '#WebDev', '#bot', '#computerscience', '#tech', '#technology', '#ai', '#makeatwitterbot', '#learntocode', '#science'];
-var randHashtags = _.random(hashtags.length - 1);
 
 function getUsers(getUsersInfo, userId) {
 
@@ -181,6 +179,9 @@ function tweetFollow(text) {
 // find latest tweet according the query 'q' in params
 function retweet() {
 
+    var hashtags = ['#javascript', '#nodejs', '#Nodejs', '#TwitterBot', '#Webdesign', '#WebDev', '#bot', '#computerscience', '#tech', '#technology', '#ai', '#makeatwitterbot', '#learntocode', '#science'];
+    var randHashtags = _.random(hashtags.length - 1);
+
     var params = {
             q: hashtags[randHashtags], // REQUIRED
             result_type: 'recent',
@@ -227,6 +228,9 @@ function retweet() {
 // find a random tweet and 'favorite' it
 function favoriteTweet() {
 
+    var hashtags = ['#javascript', '#nodejs', '#Nodejs', '#TwitterBot', '#Webdesign', '#WebDev', '#bot', '#computerscience', '#tech', '#technology', '#ai', '#makeatwitterbot', '#learntocode', '#science'];
+    var randHashtags = _.random(hashtags.length - 1);
+
     var params = {
             q: hashtags[randHashtags], // REQUIRED
             result_type: 'recent',
@@ -269,10 +273,10 @@ function favoriteTweet() {
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();
 // 'favorite' a tweet every 5 minutes
-setInterval(favoriteTweet, 1000 * 60 * 10);
+setInterval(favoriteTweet, 1000 * 60 * 5);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 10); // Retweet every 5 min
+setInterval(retweet, 1000 * 60 * 5); // Retweet every 5 min
 
 getUsers(getUsersInfo, user.ID);
-setInterval(function() { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 10);
+setInterval(function() { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 5);
