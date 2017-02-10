@@ -11,7 +11,14 @@ var T = new Twit(config);
 
 // connect to a MongoDB database
 //mongoose.connect('mongodb://localhost/test');
-mongoose.connect('mongodb://botusers:Collins0711@ds149059.mlab.com:49059/heroku_n654hmt3');
+//mongoose.connect('mongodb://botusers:Collins0711@ds149059.mlab.com:49059/heroku_n654hmt3');
+var mongoConnection = process.env.MONGODB_URL;
+if (!mongoConnection) {
+    console.log("Please define MONGODB_URL environment variable");
+    process.exit(1);
+}
+console.log('connecting to ' + mongoConnection);
+mongoose.connect(mongoConnection);
 // grab the user model
 var PastUser = require('./Pastusers.model');
 
