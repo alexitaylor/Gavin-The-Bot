@@ -24,7 +24,7 @@ mongoose.connect(mongoConnection);
 
 var userIdList = [];
 var usersInfoList = [];
-var user = { screenName: 'RedPanda_Labs', ID: 3180043436 };
+var user = { screenName: 'realDonaldTrump', ID: 25073877 };
 
 function getUsers(getUsersInfo, userId) {
 
