@@ -5,13 +5,15 @@ var _ = require('lodash');
 var greetings = require('./greetings.json');
 var inspire = require('./inspire.json');
 var mongoose = require('mongoose');
+// grab the user model
+var PastUser = require('./Pastusers.model');
 
 var config = require('./config');
 var T = new Twit(config);
 
 // connect to a MongoDB database
 //mongoose.connect('mongodb://localhost/test');
-//mongoose.connect('mongodb://botusers:Collins0711@ds149059.mlab.com:49059/heroku_n654hmt3');
+// For more info: https://nodejs.org/api/process.html#process_process_env
 var mongoConnection = process.env.MONGODB_URL;
 if (!mongoConnection) {
     console.log("Please define MONGODB_URL environment variable");
@@ -19,8 +21,6 @@ if (!mongoConnection) {
 }
 console.log('connecting to ' + mongoConnection);
 mongoose.connect(mongoConnection);
-// grab the user model
-var PastUser = require('./Pastusers.model');
 
 var userIdList = [];
 var usersInfoList = [];
@@ -283,10 +283,10 @@ function favoriteTweet() {
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();
 // 'favorite' a tweet every 5 minutes
-setInterval(favoriteTweet, 1000 * 60 * 5);
+setInterval(favoriteTweet, 1000 * 60 * 15);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 10); // Retweet every 10 min
+setInterval(retweet, 1000 * 60 * 15); // Retweet every 10 min
 
 getUsers(getUsersInfo, user.ID);
 // Pass parameters in setInterval function:
