@@ -282,11 +282,11 @@ function favoriteTweet() {
 
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();
-// 'favorite' a tweet every 5 minutes
+// 'favorite' a tweet every 15 minutes
 setInterval(favoriteTweet, 1000 * 60 * 15);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 15); // Retweet every 10 min
+setInterval(retweet, 1000 * 60 * 15); // Retweet every 15 min
 
 getUsers(getUsersInfo, user.ID);
 // Pass parameters in setInterval function:
