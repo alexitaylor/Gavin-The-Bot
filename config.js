@@ -1,8 +1,8 @@
 /*Gavin*/
 module.exports = {
-	consumer_key:         'sHjBpPEM5uTzdshMPTVEBMttl',
-  	consumer_secret:      'C6keJoL8imgNC41gs5UDXhZlE4Ggbx85LVTiHiDEoBZH8MKcDb',
-  	access_token:         '828720893496942592-tEqKl5xKeFkvm3weguuh9QrvdoGYPtr',
-  	access_token_secret:  'h0LN5kSDcl8XaDuK0EhPjDDceYrDHrNKkdpRy6FsDNQOJ',
+	consumer_key:         'Ih6sJyC1AxXdMp5IbFyMKAcuu',
+  	consumer_secret:      'Z0xQQ5WWr1eB59dsaJSu0UnxpxoFHoD7gVw8BuDJ3SFEnOXNCs',
+  	access_token:         '828720893496942592-9pwVvJh3GzDh0pT23KxSciiBUNZrlyB',
+  	access_token_secret:  'YTjvtJsmqiwN7rS4hneXQXHE8CwP4twnL7bfXAJBXqly2',
   	timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 }

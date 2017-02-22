@@ -282,13 +282,13 @@ function favoriteTweet() {
 
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();
-// 'favorite' a tweet every 15 minutes
-setInterval(favoriteTweet, 1000 * 60 * 15);
+// 'favorite' a tweet every hour
+setInterval(favoriteTweet, 1000 * 60 * 60);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 15); // Retweet every 15 min
+setInterval(retweet, 1000 * 60 * 60); // Retweet every hour
 
 getUsers(getUsersInfo, user.ID);
 // Pass parameters in setInterval function:
 // Need to create an anonymous function so the actual function isn't executed right away
-setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 15);  // Tweet @randomUser every 15 min
+setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 20);  // Tweet @randomUser every 20 min
