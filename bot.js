@@ -291,4 +291,4 @@ setInterval(retweet, 1000 * 60 * 60); // Retweet every hour
 getUsers(getUsersInfo, user.ID);
 // Pass parameters in setInterval function:
 // Need to create an anonymous function so the actual function isn't executed right away
-setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 20);  // Tweet @randomUser every 20 min
+setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 30);  // Tweet @randomUser every 30 min
