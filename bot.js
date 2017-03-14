@@ -1,5 +1,4 @@
 console.log("Hello Bot");
-//test123
 var Twit = require('twit');
 var _ = require('lodash');
 var greetings = require('./greetings.json');
@@ -12,7 +11,8 @@ var config = require('./config');
 var T = new Twit(config);
 
 // connect to a MongoDB database
-//mongoose.connect('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/test');
+
 // For more info: https://nodejs.org/api/process.html#process_process_env
 var mongoConnection = process.env.MONGODB_URL;
 if (!mongoConnection) {
@@ -43,7 +43,7 @@ function getUsers(getUsersInfo, userId) {
         Array.prototype.push.apply(userIdList, values[1].data.ids);
 
         getUsersInfo(findUser, userIdList);
-        // Reset userIdList to empty array 
+        // Reset userIdList to empty array
         userIdList = [];
     });
 
@@ -60,9 +60,9 @@ function getUsersInfo(findUser, users) {
     Promise.all([promise]).then(values => {
         for (var i = 0; i < values[0].data.length; i++) {
             var object = {
-                    screenName: values[0].data[i].screen_name,
-                    ID: values[0].data[i].id
-                };
+                screenName: values[0].data[i].screen_name,
+                ID: values[0].data[i].id
+            };
             usersInfoList.push(object);
         }
         findUser(addUser, tweetIt, usersInfoList);
@@ -96,7 +96,7 @@ function findUser(callback, tweetIt, usersInfoList) {
     }
 }
 
-// Add user to Mongo DB 
+// Add user to Mongo DB
 function addUser(id) {
     // create new user in DB
     var user = new PastUser({
@@ -129,7 +129,7 @@ function tweetIt(user) {
 
 // A BOT that REPLIES ======================================================
 // When user tweets @GavinTheBot;Gavin tweets back w/ inspirational message
-// Setting up a user stream. Also setting user stream for follow bot. 
+// Setting up a user stream. Also setting user stream for follow bot.
 var stream = T.stream('user');
 
 // Anytime someone tweets
@@ -143,7 +143,8 @@ function tweetEvent(eventMsg) {
 
     if (replyto === 'GavinTheBot') {
         var newtweet = '@' + from + " " + inspire.inspirationalQuotes[rand];
-        tweetBack(newtweet);
+        //_.delay function delays the tweeted function by 20 sec otherwise run into Twitter Limit problems. Need to make bot act more human/natural so allow for delay.
+        _.delay(() => { tweetBack(newtweet); }, 1000 * 20);
     }
 }
 
@@ -197,11 +198,11 @@ function retweet() {
     var randHashtags = _.random(hashtags.length - 1);
 
     var params = {
-            q: hashtags[randHashtags], // REQUIRED
-            result_type: 'recent',
-            lang: 'en'
-        };
-        // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
+        q: hashtags[randHashtags], // REQUIRED
+        result_type: 'recent',
+        lang: 'en'
+    };
+    // for more parametes, see: https://dev.twitter.com/rest/reference/get/search/tweets
 
     T.get('search/tweets', params, retweetIt);
 
@@ -214,8 +215,8 @@ function retweet() {
             var retweetId = data.statuses[rand].id_str;
 
             var retweet = {
-                    id: retweetId
-                };
+                id: retweetId
+            };
             // Tell TWITTER to retweet
             T.post('statuses/retweet/:id', retweet, tweeted);
 
@@ -243,11 +244,11 @@ function favoriteTweet() {
     var randHashtags = _.random(hashtags.length - 1);
 
     var params = {
-            q: hashtags[randHashtags], // REQUIRED
-            result_type: 'recent',
-            lang: 'en'
-        };
-        // for more parametes, see: https://dev.twitter.com/rest/reference
+        q: hashtags[randHashtags], // REQUIRED
+        result_type: 'recent',
+        lang: 'en'
+    };
+    // for more parametes, see: https://dev.twitter.com/rest/reference
 
     // Find the tweet
     T.get('search/tweets', params, favoriteIt);
@@ -263,8 +264,8 @@ function favoriteTweet() {
         if (typeof randomTweet != 'undefined') {
 
             var favoriteTweet = {
-                    id: randomTweet.id_str
-                };
+                id: randomTweet.id_str
+            };
             // Tell TWITTER to 'favorite'
             T.post('favorites/create', favoriteTweet, tweeted);
 
@@ -282,13 +283,13 @@ function favoriteTweet() {
 
 // grab & 'favorite' as soon as program is running...
 favoriteTweet();
-// 'favorite' a tweet every hour
-setInterval(favoriteTweet, 1000 * 60 * 60);
+// 'favorite' a tweet every 55 min
+setInterval(favoriteTweet, 1000 * 60 * 55);
 // grab & 'retweet' as soon as program is running...
 retweet();
-setInterval(retweet, 1000 * 60 * 60); // Retweet every hour
+setInterval(retweet, 1000 * 60 * 50); // Retweet every 50 min
 
 getUsers(getUsersInfo, user.ID);
 // Pass parameters in setInterval function:
 // Need to create an anonymous function so the actual function isn't executed right away
-setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 30);  // Tweet @randomUser every 30 min
+setInterval(() => { getUsers(getUsersInfo, user.ID); }, 1000 * 60 * 30); // Tweet @randomUser every 30 min
