@@ -1,28 +1,30 @@
 # twitterBot
 
-**[Gavin the Friendly Twitter Bot]** - contains my Portfolio for you to review. Built with Javascript & [Twit].
+**(Gavin the Friendly Twitter Bot)[https://twitter.com/GavinTheBot]** - A twitter bot that tweets friendly tweets to random users. Built in NodeJS with (Twit)[https://www.npmjs.com/package/twit].
 
 This page will help us get started with the few simple commands we'll need to deploy my Twitter Bot, Gavin, to Heroku.
 
 Getting Started
 ---------------
 
+1. Fork the project
+
 1. Check it out from GitHub
 
     ```sh
-    git clone https://github.com/alexitaylor/twitterBot
+    git clone https://github.com/username/twitterBot
     ```
 
 2. Install Heroku Command Line Toolbelt:
 
     https://devcenter.heroku.com/articles/heroku-command-line#download-and-install
-    
+
 3. Setup Remote at Heroku one time only
 
     ```sh
-    heroku git:remote -a alexitaylor
+    heroku git:remote -a username
     ```
-    
+
 Committing it to Github
 -----------------------
 This is the normal commands when working on the bot code
@@ -32,13 +34,13 @@ This is the normal commands when working on the bot code
     ```sh
     git pull origin master
     ```
-    
+
 2. See what changes you've made:
-    
+
     ```sh
     git status
     ```
-    
+
 3. When you are at a good point to save your work locally, commit to Local Repo
 
     ```sh
